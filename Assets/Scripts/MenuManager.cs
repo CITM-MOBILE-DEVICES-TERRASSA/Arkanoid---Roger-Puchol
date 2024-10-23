@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
 
+    void Start()
+    {
+        //if (Camera.main)
+        //    Camera.main.aspect = 109.0f / 128.0f;
+    }
+
     // Update is called once per frame
     void Update()
     {

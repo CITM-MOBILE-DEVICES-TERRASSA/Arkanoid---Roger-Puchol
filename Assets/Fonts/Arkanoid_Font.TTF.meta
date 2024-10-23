@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a99060cf163ca3342acd7c036c1e9ea6
+guid: 9ca56d865ec362e449f4713662c94386
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,10 +9,10 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Joystix
+  - Arcade Normal
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 0
+  fontRenderingMode: 3
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   shouldRoundAdvanceValue: 1

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject gridStart;
 
-    [Min(0.1f)]
+    [Min(0.01f)]
     public Vector2 brickSize;
     
     // Start is called before the first frame update
@@ -35,9 +35,9 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        if (Camera.main != null) 
-            Camera.main.aspect = 200.0f / 171.0f;
-
+        //if (Camera.main != null) 
+        //    Camera.main.aspect = 109.0f / 128.0f; 
+        
         int columns = 13;
         int rows = level.layout.Length / columns;
         if (rows < 1) rows = 1;
