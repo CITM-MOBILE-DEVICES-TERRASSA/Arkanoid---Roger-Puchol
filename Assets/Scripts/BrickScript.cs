@@ -20,6 +20,9 @@ public enum BrickColor
 
 public class BrickScript : MonoBehaviour
 {
+    [SerializeField] private GameObject[] powerupPrefabs;
+    [SerializeField] [Range(0,100)] private int powerupChance;
+    
     private static readonly int Hit = Animator.StringToHash("Hit");
     public BrickColor brickColor;
 
@@ -63,7 +66,14 @@ public class BrickScript : MonoBehaviour
         if (!other.gameObject.GetComponent<Ball>()) return;
 
         if (--hp == 0)
+        {
+            GameManager.GM.AddScore(brickColor == BrickColor.Gray? 50:10);
+            
+            if (powerupPrefabs.Length > 0 && Random.Range(0,100) < powerupChance)
+                Instantiate(powerupPrefabs[Random.Range(0,powerupPrefabs.Length)], transform.position, Quaternion.identity);
+            
             Destroy(gameObject);
+        }
         else
         {
             CancelInvoke();
@@ -79,5 +89,11 @@ public class BrickScript : MonoBehaviour
     {
         anim?.SetTrigger(Hit);
         Invoke(nameof(TriggerAnimation), Random.Range(1.5f, 5.0f));
+    }
+
+    void OnDestroy()
+    {
+        if (GameManager.GM)
+            GameManager.GM.DestroyBrick(this);
     }
 }

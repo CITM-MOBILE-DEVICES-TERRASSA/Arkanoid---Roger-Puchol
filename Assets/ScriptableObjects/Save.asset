@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b7159933f04c204cb70413e6f207175, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
-  highScore: 0
-  lives: 0
-  lastLevel: 0
+  currentScore: 0
+  highScore: 5000
+  lives: 3
+  currentLevel: 1

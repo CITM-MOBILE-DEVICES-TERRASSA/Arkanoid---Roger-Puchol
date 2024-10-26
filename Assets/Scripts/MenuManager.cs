@@ -5,19 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] private GameObject continueButton;
 
     void Start()
     {
-        //if (Camera.main)
-        //    Camera.main.aspect = 109.0f / 128.0f;
+        if (PlayerPrefs.GetInt("Lives", 0) <= 0)
+            continueButton.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void NewGame()
     {
-        if (Input.GetButtonDown("Action"))
-        {
-            SceneManager.LoadScene("Game");
-        }
+        SaveGame.SG.Load(true);
+        SceneManager.LoadScene("Game");
     }
+
+    public void LoadGame()
+    {
+        SaveGame.SG.Load(false);
+        SceneManager.LoadScene("Game");
+    }
+    
 }
