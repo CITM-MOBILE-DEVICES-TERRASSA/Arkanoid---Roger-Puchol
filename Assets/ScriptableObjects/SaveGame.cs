@@ -19,10 +19,13 @@ public class SaveGame : ScriptableObject
     // gameLoad references if the game was just started
     public void Load(bool newGame)
     {
-        highScore = PlayerPrefs.GetInt("HighScore", 5000);
+        highScore = PlayerPrefs.GetInt("HighScore", 200);
         lives = newGame ? 3 : PlayerPrefs.GetInt("Lives", 3);
         currentLevel = newGame ? 0 : PlayerPrefs.GetInt("CurrentLevel", 0);
         currentScore = newGame ? 0 : PlayerPrefs.GetInt("CurrentScore", 0);
+
+        if (lives < 0)
+            lives = 3;
     }
     
     public void Save()

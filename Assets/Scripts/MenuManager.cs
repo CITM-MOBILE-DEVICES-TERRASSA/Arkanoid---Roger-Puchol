@@ -9,13 +9,16 @@ public class MenuManager : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.GetInt("Lives", 0) <= 0)
+        int lives = PlayerPrefs.GetInt("Lives", 0); 
+        int score = PlayerPrefs.GetInt("CurrentScore", 0);
+        if (lives <= 0 && score == 0)
             continueButton.SetActive(false);
     }
 
     public void NewGame()
     {
         SaveGame.SG.Load(true);
+        SaveGame.SG.Save();
         SceneManager.LoadScene("Game");
     }
 
